@@ -1,6 +1,8 @@
 import os
-from AI_File_Organiser.TextProcessor import TextProcessor
-from AI_File_Organiser.TextEmbedder import TextEmbedder
+from TextProcessor import TextProcessor
+from TextEmbedder import TextEmbedder
+from ClusterMaker import ClusterMaker
+import numpy as np
 
 def print_files(file_paths):
     """Take a list of file paths and prints each one out"""
@@ -49,6 +51,11 @@ if __name__ == "__main__":
 
     #similarity should be 1
     print("Similarity Score: ", similarity)
+
+    embeddings = np.array([embedding])
+
+    cluster_maker = ClusterMaker()
+
 
     
 
