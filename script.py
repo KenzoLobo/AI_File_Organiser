@@ -33,10 +33,14 @@ if __name__ == "__main__":
     text_embedder = TextEmbedder()
     #try creating the chunks
     chunks = text_embedder.create_chunks(clean_text)
+    num_chunks = len(chunks)
+    print(f"Total number of chunks: {num_chunks}")
 
     #check that chunks are being created properly
-    for i in range(0,5):
-        print (chunks[i])
+    for i in range(min(5, num_chunks)):
+        print(f"Chunk {i+1}:")
+        print(chunks[i])
+        print("-" * 50)
 
     #try creating the embedding
 
