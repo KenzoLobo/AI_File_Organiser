@@ -5,7 +5,7 @@ import docx
 import pandas as pd
 import pptx
 import numpy as np
-import nltk
+# import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 

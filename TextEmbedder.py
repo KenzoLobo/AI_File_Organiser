@@ -1,4 +1,7 @@
 from sentence_transformers import SentenceTransformer
+import numpy as np
+from sklearn.metrics.pairwise import cosine_similarity
+
 class TextEmbedder:
     """
     A class to process text by creating overlapping chunks and generating embeddings.
@@ -44,7 +47,31 @@ class TextEmbedder:
         """
         Generates an embedding for the given text
         """
-        return None
+        model = SentenceTransformer('sentence-transformers/all-MiniLM-L6-v2')
+
+        text_chunks = self.create_chunks(text)
+    
+        # Compute embeddings
+        embeddings = model.encode(text_chunks)
+        
+        # Compute the average embedding
+        avg_embedding = np.mean(embeddings, axis=0)
+        
+        return avg_embedding
+    
+    def cosine_similarity(self, embedding1, embedding2):
+        """
+        Calculate the cosine similarity between two embedding vectors.
+        
+        :param embedding1: First embedding vector (numpy array)
+        :param embedding2: Second embedding vector (numpy array)
+        :return: Cosine similarity score (float)
+        """
+        embedding1 = np.array(embedding1).reshape(1, -1)  # Ensure proper shape
+        embedding2 = np.array(embedding2).reshape(1, -1)
+        
+        similarity = cosine_similarity(embedding1, embedding2)[0][0]  # Extract single value
+        return similarity
 
 # Example Usage
 if __name__ == "__main__":
