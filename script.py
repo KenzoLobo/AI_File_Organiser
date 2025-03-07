@@ -1,9 +1,9 @@
 import os
-from TextProcessor import TextProcessor
-from TextEmbedder import TextEmbedder
+from AI_File_Organiser.TextProcessor import TextProcessor
+from AI_File_Organiser.TextEmbedder import TextEmbedder
 
-"""Take a list of file paths and prints each one out"""
 def print_files(file_paths):
+    """Take a list of file paths and prints each one out"""
     for f in file_paths:
         print(f)
     
@@ -43,6 +43,19 @@ if __name__ == "__main__":
         print("-" * 50)
 
     #try creating the embedding
+    embedding = text_embedder.generate_embedding(clean_text)
+
+    #check the embedding
+    print(embedding)
+
+    #calculate the cosine similarity score between an embedding and itself to check that it works
+    similarity = text_embedder.cosine_similarity(embedding, embedding)
+
+    #similarity should be 1
+    print("Similarity Score: ", similarity)
 
     
+
+
+
 
