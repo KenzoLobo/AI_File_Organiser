@@ -122,6 +122,7 @@ class TextEmbedder:
         
         return chunks, chunk_embeddings, document_embedding
 
+
 # Example Usage
 if __name__ == "__main__":
     text = "This is a sample text to demonstrate chunking into overlapping sections for better text processing and retrieval tasks."
