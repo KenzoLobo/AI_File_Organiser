@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
     text_processor = TextProcessor(directory_name)
     file_paths = text_processor.get_all_file_paths()
-    # print_files(file_paths)
+    print_files(file_paths)
 
     #choosing a pdf file to test the chunking algo
     test_file_path = file_paths[1] #/Users/kenzolobo/Documents/CS-175/retrieve.pdf
@@ -30,15 +30,15 @@ if __name__ == "__main__":
     clean_text = text_processor.clean_text(text)
 
     #check that text was extracted correctly by printing first 100 characters
-    print(clean_text[0:100])
+    # print(clean_text[0:100])
 
     text_embedder = TextEmbedder()
     #try creating the chunks
     chunks = text_embedder.create_chunks(clean_text)
 
     #check that chunks are being created properly
-    for i in range(0,5):
-        print (chunks[i])
+    # for i in range(0,5):
+    #     print (chunks[i])
 
     #try creating the embedding
     embedding = text_embedder.generate_embedding(clean_text)
@@ -47,14 +47,17 @@ if __name__ == "__main__":
     print(embedding)
 
     #calculate the cosine similarity score between an embedding and itself to check that it works
-    similarity = text_embedder.cosine_similarity(embedding, embedding)
+    similarity = text_embedder.similarity(embedding, embedding)
 
     #similarity should be 1
     print("Similarity Score: ", similarity)
 
     embeddings = np.array([embedding])
 
-    cluster_maker = ClusterMaker()
+    cluster_maker = ClusterMaker(embeddings)
+    cluster_maker.cluster_embeddings()
+    cluster_maker.plot_embeddings()
+
 
 
     

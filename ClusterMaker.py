@@ -24,7 +24,7 @@ class ClusterMaker:
         similarity_matrix = cosine_similarity(self.embeddings)  # Compute cosine similarity matrix
 
         # Perform Agglomerative Clustering with precomputed cosine similarity
-        clustering = AgglomerativeClustering(n_clusters=num_clusters, affinity="precomputed", linkage="average")
+        clustering = AgglomerativeClustering(n_clusters=num_clusters, linkage="average")
         self.cluster_labels = clustering.fit_predict(1 - similarity_matrix)  # Convert similarity to distance
         
         return self.cluster_labels

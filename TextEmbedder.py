@@ -59,7 +59,7 @@ class TextEmbedder:
         
         return avg_embedding
     
-    def cosine_similarity(self, embedding1, embedding2):
+    def similarity(self, embedding1, embedding2):
         """
         Calculate the cosine similarity between two embedding vectors.
         
