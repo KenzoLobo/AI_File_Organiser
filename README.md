@@ -58,7 +58,7 @@ pip install numpy pandas scikit-learn matplotlib nltk sentence-transformers PyMu
 ### 4. Download NLTK Data
 
 ```bash
-python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords')"
+python -c "import nltk; nltk.download('punkt'); nltk.download('stopwords'); nltk.download('punkt_tab')"
 ```
 
 ### 5. Running the Application
