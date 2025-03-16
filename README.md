@@ -23,8 +23,8 @@ This tool helps you organize and cluster documents based on their semantic simil
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/document-clustering-tool.git
-cd document-clustering-tool
+git clone https://github.com/yourusername/AI_File_Organiser
+cd AI_File_Organiser
 ```
 
 ### 2. Create a Virtual Environment
